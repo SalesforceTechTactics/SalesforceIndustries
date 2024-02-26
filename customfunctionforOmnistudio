@@ -1,0 +1,27 @@
+ global class ClassName implements Callable{
+		
+			public Object call(String action, Map<String, Object> args) {
+
+			Map<String, Object> input = (Map<String, Object>)args.get('input');
+			Map<String, Object> output = (Map<String, Object>)args.get('output');
+			Map<String, Object> options = (Map<String, Object>)args.get('options');
+
+			return invokeMethod(action, input, output, options);
+			}
+		
+		 global Boolean invokeMethod(String methodName, Map<String, Object> inputs, Map<String, Object> output, Map<String, Object> options)
+		{
+			if (methodName == 'myMethodName')
+			{
+				List<Object> arguments = (List<Object>)inputs.get('arguments');
+				output.put('result', myMethodName(arguments));
+			}
+			return true;
+		}
+		public static String myMethodName(List<Object> arguments){
+
+			String inputlist = (String)arguments[0];
+			String returnVar = 'any logic';
+			return returnVar; (Use returnVar name in the formula result path of Data raptor.)
+		}
+	}
