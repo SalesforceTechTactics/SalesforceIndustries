@@ -1,0 +1,17 @@
+global class MyCustomFunctions implements vlocity_cmt.VlocityOpenInterface
+			{
+				global Boolean invokeMethod(String methodName, Map<String, Object> inputs, Map<String, Object> output, Map<String, Object> options)
+				{
+					if (methodName == 'myMethodName')
+					{
+						List<Object> arguments = (List<Object>)inputs.get('arguments');
+						output.put('result', myMethodName(arguments));
+					}
+				}
+				public static String myMethodName(List<Object> arguments){
+
+					String inputlist = (String)arguments[0];
+					String returnVar = 'any logic';
+					return returnVar; (Use returnVar name in the formula result path of Data raptor.)
+				}
+			}
